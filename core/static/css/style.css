@@ -4,12 +4,16 @@
 }
 
 body {
-    background: url("../img/170348-tropicheskij_ciklon-ciklon-tajfun-burya-uragan-3840x2160.jpg") no-repeat fixed center;
-    background-size: cover;
+    background-color: grey;
 }
 
 .card {
     background: #dddddd;
+}
+
+.form_row {
+    text-align: center;
+    margin-top: 80px;
 }
 
 h5 {
