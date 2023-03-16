@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import widgets
-from webapp.models import Tasks, Project
+from webapp.models import Task, Project
 from webapp.validators import CustomTitleValidator, CustomDescriptionValidator
 
 
@@ -9,7 +9,7 @@ class TasksForm(forms.ModelForm):
     description = forms.CharField(widget=widgets.Textarea(), validators=(CustomDescriptionValidator(),))
 
     class Meta:
-        model = Tasks
+        model = Task
         fields = ('summary', 'description', 'status', 'type')
         labels = {
             'summary': 'Кратоке описание',
