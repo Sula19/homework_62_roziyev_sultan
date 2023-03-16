@@ -4,7 +4,7 @@
     <h1>Вы точно хотите удалить проект {{ project.name }}?</h1>
     <form action="" method="post">
         {% csrf_token %}
-        <input type="submit" value="Delete">
-        <a href="{% url 'home' %}">No</a>
+        <input type="submit" value="Delete" class="btn btn-danger">
+        <a href="{% url 'home' %}" class="btn btn-success">No</a>
     </form>
 {% endblock %}
