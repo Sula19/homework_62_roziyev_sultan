@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Detail Task{% endblock %}
+{% block menu %}
+    {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a href="{% url 'update_task' task.pk %}" class="btn btn-light" style="margin-right: 10px">Update</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'delete_task' task.pk %}" class="btn btn-light">Delete</a>
+        </li>
+    {% endif %}
+{% endblock %}
+{% block content %}
+    <div class="card" style="max-width: 100%;">
+        <div class="row g-0">
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h1 class="card-title">{{ task.summary }}</h1><br>
+                    <h4 class="card-title">{{ task.description }}</h4><br>
+                    <h4 class="card-title">Статус - {{ task.status }}</h4><br>
+                    {% for task in task.type.all %}
+                        <h4 class="card-title">Тип - {{ task.name }}</h4><br>
+                    {% endfor %}
+                    <h4 class="card-title">Создание - {{ task.created }}</h4><br>
+                    <h4 class="card-title">Редактирование - {{ task.updated }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
