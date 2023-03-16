@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Tasks(models.Model):
+class Task(models.Model):
     summary = models.CharField(
         max_length=100,
         null=False,
