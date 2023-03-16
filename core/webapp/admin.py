@@ -1,5 +1,5 @@
 from django.contrib import admin
-from webapp.models import Tasks, Type, Status, Project
+from webapp.models import Task, Type, Status, Project
 
 
 class TaskAdmin(admin.ModelAdmin):
@@ -32,7 +32,7 @@ class StatusAdmin(admin.ModelAdmin):
     readonly_fields = ('id',)
 
 
-admin.site.register(Tasks, TaskAdmin)
+admin.site.register(Task, TaskAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Type, TypeAdmin)
 admin.site.register(Status, StatusAdmin)
