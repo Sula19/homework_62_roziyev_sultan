@@ -1,32 +1,33 @@
 from django.utils.http import urlencode
 from django.views.generic import TemplateView, CreateView, ListView, DetailView, DeleteView, UpdateView
 from webapp.forms import TasksForm, ProjectForm, SearchView
-from webapp.models import Tasks, Project
+from webapp.models import Task, Project
 from django.shortcuts import get_object_or_404, redirect, reverse
 from django.db.models import Q
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class DeleteProject(DeleteView):
-    template_name = 'delete_project.html'
+class DeleteProject(LoginRequiredMixin, DeleteView):
+    template_name = 'projects/delete_project.html'
     context_object_name = 'project'
     model = Project
     success_url = '/'
 
 
-class CreateProject(CreateView):
-    template_name = 'create_project.html'
+class CreateProject(LoginRequiredMixin, CreateView):
+    template_name = 'projects/create_project.html'
     model = Project
     form_class = ProjectForm
     success_url = '/'
 
 
 class DetailProject(DetailView):
-    template_name = 'detail_project.html'
+    template_name = 'projects/detail_project.html'
     model = Project
 
 
 class IndexProjects(ListView):
-    template_name = 'home.html'
+    template_name = 'projects/home.html'
     context_object_name = 'projects'
 
     def get_queryset(self):
@@ -34,9 +35,10 @@ class IndexProjects(ListView):
 
 
 class IndexViews(ListView):
-    template_name = 'index_tasks.html'
+    template_name = 'tasks/index_tasks.html'
+    model = Task
     context_object_name = 'tasks'
-    model = Tasks
+    ordering = ('-created',)
     paginate_by = 10
     paginate_orphans = 1
 
@@ -68,9 +70,9 @@ class IndexViews(ListView):
         return None
 
 
-class CreateTask(CreateView):
-    template_name = 'create_task.html'
-    model = Tasks
+class CreateTask(LoginRequiredMixin, CreateView):
+    template_name = 'tasks/create_task.html'
+    model = Task
     form_class = TasksForm
 
     def form_valid(self, form):
@@ -82,17 +84,17 @@ class CreateTask(CreateView):
 
 
 class DetailView(TemplateView):
-    template_name = 'detail_task.html'
+    template_name = 'tasks/detail_task.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['task'] = get_object_or_404(Tasks, pk=kwargs['pk'])
+        context['task'] = get_object_or_404(Task, pk=kwargs['pk'])
         return context
 
 
-class UpdateViews(UpdateView):
-    template_name = 'update_task.html'
-    model = Tasks
+class UpdateViews(LoginRequiredMixin, UpdateView):
+    template_name = 'tasks/update_task.html'
+    model = Task
     form_class = TasksForm
     context_object_name = 'task'
 
@@ -100,8 +102,8 @@ class UpdateViews(UpdateView):
         return reverse('detail_task', kwargs={'pk': self.object.pk})
 
 
-class DeleteViews(DeleteView):
-    template_name = 'delete_task.html'
-    model = Tasks
+class DeleteViews(LoginRequiredMixin, DeleteView):
+    template_name = 'tasks/delete_task.html'
+    model = Task
     context_object_name = 'task'
     success_url = '/'
