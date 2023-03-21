@@ -2,11 +2,18 @@
 {% block title %}Detail Project{% endblock %}
 {% block menu %}
     {% if user.is_authenticated %}
-        <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{% url 'create_task' project.pk %}">
-                <button type="button" class="btn btn-light">Add Task</button>
-            </a>
-        </li>
+        {% if perms.webapp.change_tasks %}
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'create_task' project.pk %}">
+                    <button type="button" class="btn btn-light">Add Task</button>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'add_user' project.pk %}">
+                    <button type="button" class="btn btn-light">Add to User</button>
+                </a>
+            </li>
+        {% endif %}
     {% endif %}
 {% endblock %}
 {% block content %}
@@ -24,5 +31,13 @@
                 </div>
             </div>
         {% endfor %}
-    </div>
+    </div><br>
+    <h2>Пользователи</h2>
+    {% for name in project.users.all %}
+        <h4 style="color: white">{{ name.username }}</h4>
+        <form action="" method="post">
+            {% csrf_token %}
+            <a href="{% url 'delete_user' name.pk %}" class="btn btn-primary">Delete</a>
+        </form>
+    {% endfor %}
 {% endblock %}
