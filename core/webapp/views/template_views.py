@@ -4,21 +4,42 @@ from webapp.forms import TasksForm, ProjectForm, SearchView
 from webapp.models import Task, Project
 from django.shortcuts import get_object_or_404, redirect, reverse
 from django.db.models import Q
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin, UserPassesTestMixin
 
 
-class DeleteProject(LoginRequiredMixin, DeleteView):
+class GroupPermissionMixin(UserPassesTestMixin):
+
+    def test_func(self):
+        return self.request.user.groups.filter(name__in=['manager', 'lead']).exists()
+
+
+class DeleteProject(GroupPermissionMixin, DeleteView):
     template_name = 'projects/delete_project.html'
     context_object_name = 'project'
     model = Project
     success_url = '/'
+    groups = ['manager']
 
 
-class CreateProject(LoginRequiredMixin, CreateView):
+class CreateProject(GroupPermissionMixin, CreateView):
     template_name = 'projects/create_project.html'
     model = Project
     form_class = ProjectForm
     success_url = '/'
+    permission_required = 'webapp.change_project'
+    groups = ['manager']
+
+
+class UpdateProject(GroupPermissionMixin, UpdateView):
+    template_name = 'projects/update_project.html'
+    model = Project
+    form_class = ProjectForm
+    success_url = '/'
+    groups = ['manager']
+
+    def form_valid(self, form):
+        form.instance.users = self.request.user
+        return super().form_valid(form)
 
 
 class DetailProject(DetailView):
@@ -70,10 +91,12 @@ class IndexViews(ListView):
         return None
 
 
-class CreateTask(LoginRequiredMixin, CreateView):
+class CreateTask(UserPassesTestMixin, CreateView):
     template_name = 'tasks/create_task.html'
     model = Task
     form_class = TasksForm
+    permission_denied_message = 'No'
+
 
     def form_valid(self, form):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
@@ -81,6 +104,11 @@ class CreateTask(LoginRequiredMixin, CreateView):
         task.project = project
         task.save()
         return redirect('/')
+
+    def test_func(self):
+        project = Project.objects.get(pk=self.kwargs.get('pk'))
+        for user in project.users.all():
+            return user == self.request.user and self.request.user.has_perm('webapp.change_tasks')
 
 
 class DetailView(TemplateView):
@@ -92,7 +120,7 @@ class DetailView(TemplateView):
         return context
 
 
-class UpdateViews(LoginRequiredMixin, UpdateView):
+class UpdateViews(UpdateView):
     template_name = 'tasks/update_task.html'
     model = Task
     form_class = TasksForm
@@ -102,8 +130,9 @@ class UpdateViews(LoginRequiredMixin, UpdateView):
         return reverse('detail_task', kwargs={'pk': self.object.pk})
 
 
-class DeleteViews(LoginRequiredMixin, DeleteView):
+class DeleteViews(GroupPermissionMixin, DeleteView):
     template_name = 'tasks/delete_task.html'
     model = Task
     context_object_name = 'task'
     success_url = '/'
+    groups = ['manager', 'lead']
