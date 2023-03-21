@@ -28,8 +28,7 @@ class ProjectForm(forms.ModelForm):
 
     class Meta:
         model = Project
-        fields = ('start_date', 'expiration_date', 'name', 'description')
-        exclude = ['users']
+        fields = ('start_date', 'expiration_date', 'name', 'description', 'users')
         labels = {
             'name': 'Название',
             'description': 'Описание',

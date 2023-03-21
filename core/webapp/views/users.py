@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.views.generic import FormView, DeleteView
 from webapp.models import Project
-from django.shortcuts import reverse
+from django.shortcuts import reverse, redirect
 from webapp.forms import UserProjectForm
 from webapp.views.template_views import GroupPermissionMixin
 
@@ -31,5 +31,8 @@ class DeleteUser(GroupPermissionMixin, DeleteView):
 
     #Сделал удаление вообще из базы
     def get(self, request, *args, **kwargs):
-        remove = self.delete(request)
-        return remove
+        project = Project.objects.all()
+        user = User.objects.get(pk=kwargs.get('pk'))
+        for p in project:
+            p.users.remove(user)
+        return redirect('/')

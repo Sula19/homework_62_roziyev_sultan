@@ -3,11 +3,12 @@ from webapp.views.template_views import IndexViews, \
     DetailView, UpdateViews, \
     CreateTask, DeleteViews, \
     IndexProjects, CreateProject, DetailProject, DeleteProject, UpdateProject
-from webapp.views.users import CreateUser
+from webapp.views.users import CreateUser, DeleteUser
 
 urlpatterns = [
     path('users/<int:pk>', CreateUser.as_view(), name='add_user'),
     path('', IndexProjects.as_view(), name='home'),
+    path('project/delete/user/<int:pk>', DeleteUser.as_view(), name='delete_user'),
     path('projects/add_project', CreateProject.as_view(), name='create_project'),
     path('projects/detail/<int:pk>', DetailProject.as_view(), name='detail_project'),
     path('project/delete/<int:pk>', DeleteProject.as_view(), name='delete_project'),
