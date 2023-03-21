@@ -13,7 +13,7 @@ class TaskAdmin(admin.ModelAdmin):
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'description', 'start_date', 'expiration_date')
     list_filter = ('name', 'start_date', 'expiration_date')
-    search_fields = ('name', 'start_date', 'expiration_date')
+    search_fields = ('name', 'start_date', 'expiration_date', 'users')
     fields = ('name', 'description', 'start_date', 'expiration_date')
     readonly_fields = ('id',)
 
