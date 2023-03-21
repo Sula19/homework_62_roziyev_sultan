@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Project(models.Model):
@@ -22,6 +23,10 @@ class Project(models.Model):
         null=False,
         blank=False,
         verbose_name='Описание'
+    )
+    users = models.ManyToManyField(
+        to=User,
+        related_name='projects'
     )
     is_deleted = models.BooleanField(
         verbose_name='Удалено',
