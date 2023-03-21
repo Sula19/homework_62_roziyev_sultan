@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: grey;
+    background-color: #1b1b1b;
 }
 
 .card {
@@ -37,7 +37,7 @@ p {
 }
 
 h3 {
-    color: #444444;
+    color: white;
 }
 
 .form-label {
