@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Add Project{% endblock %}
+{% block content %}
+    <form method="post">
+        <div class="card" style="align-items: center; background: fixed;">
+            <div class="row">
+                <div class="col-12">
+                    {% include 'partial/create_&_update_task.html' with button='Update' %}
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}
