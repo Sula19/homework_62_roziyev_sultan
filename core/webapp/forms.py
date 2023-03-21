@@ -2,6 +2,7 @@ from django import forms
 from django.forms import widgets
 from webapp.models import Task, Project
 from webapp.validators import CustomTitleValidator, CustomDescriptionValidator
+from django.contrib.auth.models import User
 
 
 class TasksForm(forms.ModelForm):
@@ -24,9 +25,11 @@ class ProjectForm(forms.ModelForm):
     expiration_date = forms.DateField(widget=widgets.DateInput(format='%d-%m-%Y', attrs={'type': 'date'}), label='Дата окончания')
     name = forms.CharField(validators=(CustomTitleValidator(),))
     description = forms.CharField(widget=widgets.Textarea(), validators=(CustomDescriptionValidator(),))
+
     class Meta:
         model = Project
         fields = ('start_date', 'expiration_date', 'name', 'description')
+        exclude = ['users']
         labels = {
             'name': 'Название',
             'description': 'Описание',
@@ -37,3 +40,7 @@ class ProjectForm(forms.ModelForm):
 
 class SearchView(forms.Form):
     search = forms.CharField(max_length=90, required=False, label='Найти')
+
+
+class UserProjectForm(forms.Form):
+    users = forms.ModelChoiceField(queryset=User.objects.all(), label='Пользователи')
