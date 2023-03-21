@@ -1,299 +1,294 @@
 [
 {
-  "model": "webapp.project",
-  "pk": 1,
-  "fields": {
-    "start_date": "2023-04-03",
-    "expiration_date": "2023-06-22",
-    "name": "Project-1",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
-    "is_deleted": false
-  }
+   "model": "webapp.project",
+   "pk": 1,
+   "fields": {
+      "start_date": "2023-04-03",
+      "expiration_date": "2023-06-22",
+      "name": "Project-3",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
+      "is_deleted": true,
+      "users": []
+   }
 },
 {
-  "model": "webapp.project",
-  "pk": 2,
-  "fields": {
-    "start_date": "2023-03-14",
-    "expiration_date": "2024-03-24",
-    "name": "Project-2",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
-    "is_deleted": false
-  }
+   "model": "webapp.project",
+   "pk": 2,
+   "fields": {
+      "start_date": "2023-03-14",
+      "expiration_date": "2024-03-24",
+      "name": "Project-2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
+      "is_deleted": false,
+      "users": [
+         7,
+         9
+      ]
+   }
 },
 {
-  "model": "webapp.tasks",
-  "pk": 1,
-  "fields": {
-    "summary": "Task-1",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
-    "project": 1,
-    "status": 1,
-    "created": "2023-03-08T18:54:50.162Z",
-    "updated": "2022-06-08T18:55:20.749Z",
-    "type": [
-      1
-    ]
-  }
+   "model": "webapp.project",
+   "pk": 5,
+   "fields": {
+      "start_date": "2023-03-08",
+      "expiration_date": "2023-03-26",
+      "name": "Project-1",
+      "description": "Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio! sit init",
+      "is_deleted": false,
+      "users": [
+         1
+      ]
+   }
 },
 {
-  "model": "webapp.tasks",
-  "pk": 2,
-  "fields": {
-    "summary": "Task-2",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
-    "project": 1,
-    "status": 2,
-    "created": "2023-03-08T18:54:54.732Z",
-    "updated": "2024-10-27T18:55:25.579Z",
-    "type": [
-      2
-    ]
-  }
+   "model": "webapp.project",
+   "pk": 6,
+   "fields": {
+      "start_date": "2023-03-09",
+      "expiration_date": "2023-04-25",
+      "name": "Project-4",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
+      "is_deleted": true,
+      "users": []
+   }
 },
 {
-  "model": "webapp.tasks",
-  "pk": 3,
-  "fields": {
-    "summary": "Task-3",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
-    "project": 2,
-    "status": 3,
-    "created": "2023-03-08T18:54:56.348Z",
-    "updated": "2023-03-08T18:55:31.933Z",
-    "type": [
-      3,
-      1
-    ]
-  }
+   "model": "webapp.task",
+   "pk": 1,
+   "fields": {
+      "summary": "Task-1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
+      "project": 1,
+      "status": 1,
+      "created": "2023-03-08T18:54:50.162Z",
+      "updated": "2022-06-08T18:55:20.749Z",
+      "type": [
+         1
+      ]
+   }
 },
 {
-  "model": "webapp.tasks",
-  "pk": 4,
-  "fields": {
-    "summary": "Task-4",
-    "description": "Lorem ipsum dolor sit amet",
-    "project": 1,
-    "status": 2,
-    "created": "2023-03-08T18:55:03.151Z",
-    "updated": "2023-03-08T18:55:32.791Z",
-    "type": [
-      3
-    ]
-  }
+   "model": "webapp.task",
+   "pk": 2,
+   "fields": {
+      "summary": "Task-2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
+      "project": 1,
+      "status": 2,
+      "created": "2023-03-08T18:54:54.732Z",
+      "updated": "2024-10-27T18:55:25.579Z",
+      "type": [
+         2
+      ]
+   }
 },
 {
-  "model": "webapp.tasks",
-  "pk": 5,
-  "fields": {
-    "summary": "Task-5",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
-    "project": 1,
-    "status": 1,
-    "created": "2023-03-08T18:55:04.623Z",
-    "updated": "2023-03-08T18:55:33.437Z",
-    "type": [
-      3
-    ]
-  }
+   "model": "webapp.task",
+   "pk": 3,
+   "fields": {
+      "summary": "Task-3",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
+      "project": 2,
+      "status": 3,
+      "created": "2023-03-08T18:54:56.348Z",
+      "updated": "2023-03-08T18:55:31.933Z",
+      "type": [
+         1,
+         3
+      ]
+   }
 },
 {
-  "model": "webapp.tasks",
-  "pk": 7,
-  "fields": {
-    "summary": "Task-7",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
-    "project": 1,
-    "status": 1,
-    "created": "2023-03-08T18:55:07.685Z",
-    "updated": "2023-03-08T18:55:36.687Z",
-    "type": [
-      2
-    ]
-  }
+   "model": "webapp.task",
+   "pk": 4,
+   "fields": {
+      "summary": "Task-4",
+      "description": "Lorem ipsum dolor sit amet",
+      "project": 1,
+      "status": 2,
+      "created": "2023-03-08T18:55:03.151Z",
+      "updated": "2023-03-08T18:55:32.791Z",
+      "type": [
+         3
+      ]
+   }
 },
 {
-  "model": "webapp.tasks",
-  "pk": 8,
-  "fields": {
-    "summary": "Task-8",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
-    "project": 2,
-    "status": 3,
-    "created": "2023-03-08T18:55:08.342Z",
-    "updated": "2024-03-08T15:53:35.723Z",
-    "type": [
-      1,
-      3
-    ]
-  }
+   "model": "webapp.task",
+   "pk": 5,
+   "fields": {
+      "summary": "Task-5",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
+      "project": 1,
+      "status": 1,
+      "created": "2023-03-08T18:55:04.623Z",
+      "updated": "2023-03-08T18:55:33.437Z",
+      "type": [
+         3
+      ]
+   }
 },
 {
-  "model": "webapp.tasks",
-  "pk": 9,
-  "fields": {
-    "summary": "Task-9",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
-    "project": 1,
-    "status": 3,
-    "created": "2023-03-08T18:55:09.133Z",
-    "updated": "2023-03-08T18:55:43.156Z",
-    "type": [
-      1
-    ]
-  }
+   "model": "webapp.task",
+   "pk": 8,
+   "fields": {
+      "summary": "Task-8",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
+      "project": 2,
+      "status": 3,
+      "created": "2023-03-08T18:55:08.342Z",
+      "updated": "2024-03-08T15:53:35.723Z",
+      "type": [
+         1,
+         3
+      ]
+   }
 },
 {
-  "model": "webapp.tasks",
-  "pk": 10,
-  "fields": {
-    "summary": "Task-10",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
-    "project": 2,
-    "status": 1,
-    "created": "2023-03-08T18:55:10.730Z",
-    "updated": "2017-05-12T18:55:44.218Z",
-    "type": [
-      2,
-      1
-    ]
-  }
+   "model": "webapp.task",
+   "pk": 9,
+   "fields": {
+      "summary": "Task-9",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
+      "project": 1,
+      "status": 3,
+      "created": "2023-03-08T18:55:09.133Z",
+      "updated": "2023-03-08T18:55:43.156Z",
+      "type": [
+         1
+      ]
+   }
 },
 {
-  "model": "webapp.tasks",
-  "pk": 11,
-  "fields": {
-    "summary": "Task-11",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
-    "project": 1,
-    "status": 2,
-    "created": "2023-03-08T18:55:09.985Z",
-    "updated": "2023-03-08T18:55:50.708Z",
-    "type": [
-      1,
-      2
-    ]
-  }
+   "model": "webapp.task",
+   "pk": 10,
+   "fields": {
+      "summary": "Task-10",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio",
+      "project": 2,
+      "status": 1,
+      "created": "2023-03-08T18:55:10.730Z",
+      "updated": "2023-03-16T12:38:19.031Z",
+      "type": [
+         1,
+         2
+      ]
+   }
 },
 {
-  "model": "webapp.tasks",
-  "pk": 12,
-  "fields": {
-    "summary": "Task-12",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
-    "project": 2,
-    "status": 3,
-    "created": "2023-03-08T18:55:11.617Z",
-    "updated": "2023-03-09T08:25:17.276Z",
-    "type": [
-      1,
-      3
-    ]
-  }
+   "model": "webapp.task",
+   "pk": 11,
+   "fields": {
+      "summary": "Task-11",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
+      "project": 1,
+      "status": 2,
+      "created": "2023-03-08T18:55:09.985Z",
+      "updated": "2023-03-08T18:55:50.708Z",
+      "type": [
+         1,
+         2
+      ]
+   }
 },
 {
-  "model": "webapp.tasks",
-  "pk": 13,
-  "fields": {
-    "summary": "Task-13",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
-    "project": 1,
-    "status": 1,
-    "created": "2023-03-08T18:55:12.257Z",
-    "updated": "2023-03-08T18:55:52.093Z",
-    "type": [
-      2
-    ]
-  }
+   "model": "webapp.task",
+   "pk": 13,
+   "fields": {
+      "summary": "Task-13",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
+      "project": 1,
+      "status": 1,
+      "created": "2023-03-08T18:55:12.257Z",
+      "updated": "2023-03-08T18:55:52.093Z",
+      "type": [
+         2
+      ]
+   }
 },
 {
-  "model": "webapp.tasks",
-  "pk": 14,
-  "fields": {
-    "summary": "Task-14",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
-    "project": 2,
-    "status": 3,
-    "created": "2023-03-08T18:55:13.539Z",
-    "updated": "2023-03-08T18:55:53.363Z",
-    "type": [
-      3
-    ]
-  }
+   "model": "webapp.task",
+   "pk": 14,
+   "fields": {
+      "summary": "Task-14",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
+      "project": 2,
+      "status": 3,
+      "created": "2023-03-08T18:55:13.539Z",
+      "updated": "2023-03-08T18:55:53.363Z",
+      "type": [
+         3
+      ]
+   }
 },
 {
-  "model": "webapp.tasks",
-  "pk": 15,
-  "fields": {
-    "summary": "Task-15",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
-    "project": 1,
-    "status": 1,
-    "created": "2023-03-08T18:55:12.894Z",
-    "updated": "2023-03-08T18:55:53.967Z",
-    "type": [
-      2
-    ]
-  }
+   "model": "webapp.task",
+   "pk": 15,
+   "fields": {
+      "summary": "Task-15",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!",
+      "project": 1,
+      "status": 1,
+      "created": "2023-03-08T18:55:12.894Z",
+      "updated": "2023-03-08T18:55:53.967Z",
+      "type": [
+         2
+      ]
+   }
 },
 {
-  "model": "webapp.status",
-  "pk": 1,
-  "fields": {
-    "name": "New"
-  }
+   "model": "webapp.task",
+   "pk": 19,
+   "fields": {
+      "summary": "Task-22",
+      "description": "Description",
+      "project": 6,
+      "status": 2,
+      "created": "2023-03-20T08:46:26.741Z",
+      "updated": "2023-03-20T08:46:26.741Z",
+      "type": []
+   }
 },
 {
-  "model": "webapp.status",
-  "pk": 2,
-  "fields": {
-    "name": "In Progress"
-  }
+   "model": "webapp.status",
+   "pk": 1,
+   "fields": {
+      "name": "New"
+   }
 },
 {
-  "model": "webapp.status",
-  "pk": 3,
-  "fields": {
-    "name": "Done"
-  }
+   "model": "webapp.status",
+   "pk": 2,
+   "fields": {
+      "name": "In Progress"
+   }
 },
 {
-  "model": "webapp.type",
-  "pk": 1,
-  "fields": {
-    "name": "Task"
-  }
+   "model": "webapp.status",
+   "pk": 3,
+   "fields": {
+      "name": "Done"
+   }
 },
 {
-  "model": "webapp.type",
-  "pk": 2,
-  "fields": {
-    "name": "Bug"
-  }
+   "model": "webapp.type",
+   "pk": 1,
+   "fields": {
+      "name": "Task"
+   }
 },
 {
-  "model": "webapp.type",
-  "pk": 3,
-  "fields": {
-    "name": "Enhancement"
-  }
+   "model": "webapp.type",
+   "pk": 2,
+   "fields": {
+      "name": "Bug"
+   }
 },
 {
-  "model": "auth.user",
-  "pk": 1,
-  "fields": {
-    "password": "pbkdf2_sha256$390000$Gco4T4nuEtR1hQlfmeJmVh$s8sS+cfqZFN2IuLcBfq54P7WjuvQ48Q1G+TxEyjZx/s=",
-    "last_login": "2023-03-08T12:58:41.216Z",
-    "is_superuser": true,
-    "username": "sultan",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2023-03-08T12:50:11.411Z",
-    "groups": [],
-    "user_permissions": []
-  }
+   "model": "webapp.type",
+   "pk": 3,
+   "fields": {
+      "name": "Enhancement"
+   }
 }
 ]
